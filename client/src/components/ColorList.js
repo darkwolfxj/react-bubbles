@@ -67,6 +67,14 @@ const ColorList = ({ colors, updateColors }) => {
           </li>
         ))}
       </ul>
+      <div>
+      {/* stretch - build another form here to add a color */}
+      <form onSubmit={ handleSubmit }>
+          <input type="text" onChange={ (e) => handleColor(e.target.value) } placeholder="color name" value={ col } />
+          <input type="text" onChange={ (e) => handleHex(e.target.value) } placeholder="hex code" value={ hex } />
+          <button type="submit">Add Color</button>
+      </form>
+    </div>
       {editing && (
         <form onSubmit={saveEdit}>
           <legend>edit color</legend>
@@ -97,13 +105,7 @@ const ColorList = ({ colors, updateColors }) => {
           </div>
         </form>
       )}
-      <div className="spacer" />
-      {/* stretch - build another form here to add a color */}
-      <form onSubmit={ handleSubmit }>
-          <input type="text" onChange={ (e) => handleColor(e.target.value) } placeholder="color name" value={ col } />
-          <input type="text" onChange={ (e) => handleHex(e.target.value) } placeholder="hex code" value={ hex } />
-          <button type="submit">Add Color</button>
-      </form>
+
     </div>
   );
 };
