@@ -20,6 +20,9 @@ jobs:
                   paths:
                       - ./node_modules
             - run:
+                  name: cd into client
+                  command: cd client
+            - run:
                   name: Build
                   command: npm build
             - run:
