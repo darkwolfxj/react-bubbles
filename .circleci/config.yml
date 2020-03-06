@@ -22,9 +22,12 @@ jobs:
             - run:
                   name: cd into client
                   command: cd client
-            # - run:
-                  # name: Build
-                  # command: npm build
+            - run:
+                  name: Build
+                  command: npm build
+            - run: 
+                  name: cd back up
+                  command: cd ..                
             - run:
                   name: Firebase Deploy
                   command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
