@@ -11,9 +11,11 @@ const Login = ({ history }) => {
         console.log({ username, password })
         axios
             .post("http://localhost:5000/api/login", { username, password })
-            .then(res => localStorage.setItem("token", res.data.payload))
+            .then(res => {
+                localStorage.setItem("token", res.data.payload)
+                setTimeout(() => history.push("/bubbles"), 500)
+            })
             .catch(err => console.log(err))
-        setTimeout(() => history.push("/bubbles"), 2000)
     }
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
